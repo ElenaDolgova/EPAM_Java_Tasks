@@ -5,6 +5,7 @@ public class Main {
 
         Scanner s = new Scanner(System.in);
         double q = s.nextDouble();
+        //double q=0.3;
         int n=1;
         double w=0;
 
@@ -12,7 +13,7 @@ public class Main {
             System.out.print(method(i)+" ");
             n=i;
         }
-        System.out.println("Минимальный номер: "+n);
+        System.out.println("Minimum number: "+n);
     }
 
     private static  double method (int i){
