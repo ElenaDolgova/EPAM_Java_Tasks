@@ -5,8 +5,9 @@ public class Main {
     public static void main(String[] args){
 
         Scanner s = new Scanner(System.in);
+        System.out.print("Input e ");
         double q = s.nextDouble();
-        //double q=0.3;
+
         int n=1;
         double w=0;
 
