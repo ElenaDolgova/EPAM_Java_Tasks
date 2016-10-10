@@ -3,14 +3,25 @@ package javase02.t02.Notebook;
 public class Notebook {
     int numberOfTitle;
     int price;
+    public boolean check=false;
 
-    public  Notebook(int numberOfTitle,int price){
+    public int[] GetNotebook(){
+        int[] o=new int[2];
+        o[0]=numberOfTitle;
+        o[1]=price;
+        return o;
+    }
+    public void  SetNotebook(int numberOfTitle,int price){
         this.numberOfTitle=numberOfTitle;
-
         this.price=price;
     }
+    public  Notebook(int numberOfTitle,int price){
+        this.numberOfTitle=numberOfTitle;
+        this.price=price;
+        check=true;
+    }
 
-    protected int Price(){
+    public int getPrice(){
         return price;
     }
     @Override

@@ -2,17 +2,36 @@ package javase02.t01.pen;
 
 public class Pen {
 
-    protected int length;
-    protected String color;
-    protected int price;
+    private int length;
+    private String color;
+    private int price;
+    public boolean check=false;
 
     public  Pen(int length,String color,int price){
         this.length=length;
         this.color=color;
         this.price=price;
+        check=true;
+    }
+    public Object getPen(){
+        Object[] o= new Object[3];
+        o[0]=length;
+        o[1]=color;
+        o[2]=price;
+        return o;
+    }
+    public void setPen(int length,int price,String color){
+        this.length=length;
+        this.price=price;
+        this.color=color;
+    }
+    public  void setPen(String color){
+        this.color=color;
     }
 
-    protected int Price(){
+
+
+    public int getPrice(){
         return price;
     }
     @Override
