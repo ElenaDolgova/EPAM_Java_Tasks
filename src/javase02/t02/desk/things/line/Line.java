@@ -5,6 +5,11 @@ import javase02.t03.baseThing.BaseThing;
 
 public class Line extends BaseThing {
     int measure;
+
+    public Line(){
+        super(10);
+        this.measure=30;
+    }
      public Line(int measure, int price){
          super(price);
          this.measure=measure;

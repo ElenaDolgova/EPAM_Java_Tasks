@@ -5,6 +5,11 @@ import javase02.t03.baseThing.BaseThing;
 public class Notebook extends BaseThing {
     int numberOfTitle;
 
+    public Notebook(){
+        super(30);
+        numberOfTitle=40;
+    }
+
         public Notebook(int numberOfTitle, int prise){
         super(prise);
         this.numberOfTitle=numberOfTitle;

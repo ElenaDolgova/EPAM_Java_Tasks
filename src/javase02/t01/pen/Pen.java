@@ -7,6 +7,12 @@ public class Pen extends BaseThing{
     private int length;
     private String color;
 
+    public  Pen(){
+        super(20);
+        this.length=10;
+        this.color="Blue";
+    }
+
     public  Pen(int length,String color, int price){
         super(price);
         this.length=length;
@@ -36,12 +42,7 @@ public class Pen extends BaseThing{
             return  false;
         if (getClass()!=o.getClass())
             return false;
-        /*
-        if(o instanceof this){
-        Pen pen =(Pen) o;
-        }else{
-        } return false;
-         */
+
         Pen pen = (Pen) o;
 
         if (!super.equals(pen)){
