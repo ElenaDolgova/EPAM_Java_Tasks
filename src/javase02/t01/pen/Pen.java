@@ -1,17 +1,16 @@
 package javase02.t01.pen;
 
-public class Pen {
+import javase02.t03.baseThing.BaseThing;
+
+public class Pen extends BaseThing{
 
     private int length;
     private String color;
-    private int price;
-    public boolean check=false;
 
-    public  Pen(int length,String color,int price){
+    public  Pen(int length,String color, int price){
+        super(price);
         this.length=length;
         this.color=color;
-        this.price=price;
-        check=true;
     }
     public Object getPen(){
         Object[] o= new Object[3];
@@ -29,11 +28,6 @@ public class Pen {
         this.color=color;
     }
 
-
-
-    public int getPrice(){
-        return price;
-    }
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -42,9 +36,19 @@ public class Pen {
             return  false;
         if (getClass()!=o.getClass())
             return false;
+        /*
+        if(o instanceof this){
+        Pen pen =(Pen) o;
+        }else{
+        } return false;
+         */
         Pen pen = (Pen) o;
 
-        if (this.price!=pen.price|this.length!=pen.length){
+        if (!super.equals(pen)){
+            return false;
+        }
+
+        if (this.length!=pen.length){
             return  false;
         }
         if(null==color){
@@ -60,9 +64,9 @@ public class Pen {
 
     @Override
     public int hashCode() {
-        int result;
-        result=(int) (31*price+ ((color==null)?0:color.hashCode()));
-        result=(int) 31*result+length;
+        int result=super.hashCode();
+        result=31*result+ ((color==null)?0:color.hashCode());
+        result=31*result+length;
 
         return result;
     }
@@ -72,7 +76,6 @@ public class Pen {
         return "Pen{" +
                 "length=" + length +
                 ", color='" + color + '\'' +
-                ", price=" + price +
                 '}';
     }
 }

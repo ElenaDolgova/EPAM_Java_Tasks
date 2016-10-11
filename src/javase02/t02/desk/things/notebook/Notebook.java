@@ -1,29 +1,27 @@
-package javase02.t02.Notebook;
+package javase02.t02.desk.things.notebook;
 
-public class Notebook {
+import javase02.t03.baseThing.BaseThing;
+
+public class Notebook extends BaseThing {
     int numberOfTitle;
-    int price;
-    public boolean check=false;
 
-    public int[] GetNotebook(){
+        public Notebook(int numberOfTitle, int prise){
+        super(prise);
+        this.numberOfTitle=numberOfTitle;
+        }
+
+    public int[] getNotebook(){
         int[] o=new int[2];
         o[0]=numberOfTitle;
         o[1]=price;
         return o;
     }
-    public void  SetNotebook(int numberOfTitle,int price){
+    public void  setNotebook(int numberOfTitle,int price){
         this.numberOfTitle=numberOfTitle;
         this.price=price;
-    }
-    public  Notebook(int numberOfTitle,int price){
-        this.numberOfTitle=numberOfTitle;
-        this.price=price;
-        check=true;
     }
 
-    public int getPrice(){
-        return price;
-    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -32,9 +30,12 @@ public class Notebook {
             return  false;
         if (getClass()!=o.getClass())
             return false;
-        Notebook pen = (Notebook) o;
+        Notebook notebook = (Notebook) o;
 
-        if (this.price!=pen.price|this.numberOfTitle!=pen.numberOfTitle){
+        if (!super.equals(notebook)){
+            return false;
+        }
+        if (this.numberOfTitle!=notebook.numberOfTitle){
             return  false;
         }
         return true;
@@ -42,16 +43,16 @@ public class Notebook {
 
     @Override
     public int hashCode() {
-        int result=1;
-        result=(int) 31*result+price;
-        result=(int) 31*result+numberOfTitle;
+        int result=super.hashCode();
+
+        result=31*result+numberOfTitle;
 
         return result;
     }
 
     @Override
     public String toString() {
-        return "Notebook{" +
+        return "notebook{" +
                 "numberOfTitle=" + numberOfTitle +
                 ", price=" + price +
                 '}';
