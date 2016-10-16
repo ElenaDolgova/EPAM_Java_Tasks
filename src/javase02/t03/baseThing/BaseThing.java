@@ -7,7 +7,8 @@ public class BaseThing {
     protected int price;
     public boolean check=false;
 
-    protected BaseThing(int prise){
+
+    public BaseThing(int prise){
         this.price=prise;
         this.check=true;
     }
