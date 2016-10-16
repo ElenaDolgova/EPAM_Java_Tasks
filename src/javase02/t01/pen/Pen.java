@@ -2,30 +2,36 @@ package javase02.t01.pen;
 
 import javase02.t03.baseThing.BaseThing;
 
-public class Pen extends BaseThing{
+public class Pen extends BaseThing
+{
 
     private int length;
-    private String color;
+   // private String color;
 
     public  Pen(){
-        super(20);
+        super.price=30;
+        super.check=true;
         this.length=10;
         this.color="Blue";
     }
 
     public  Pen(int length,String color, int price){
-        super(price);
+        super.price=price;
         this.length=length;
         this.color=color;
     }
-    public Object getPen(){
-        Object[] o= new Object[3];
-        o[0]=length;
-        o[1]=color;
-        o[2]=price;
-        return o;
+
+
+    @Override
+    public String getColor(){
+        return this.color;
     }
-    public void setPen(int length,int price,String color){
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setPen(int length, int price, String color){
         this.length=length;
         this.price=price;
         this.color=color;
@@ -76,7 +82,8 @@ public class Pen extends BaseThing{
     public String toString() {
         return "Pen{" +
                 "length=" + length +
-                ", color='" + color + '\'' +
+                ", color='" + color  +
+                ", price="+super.price +'\'' +
                 '}';
     }
 }

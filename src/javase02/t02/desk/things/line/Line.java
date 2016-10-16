@@ -5,53 +5,54 @@ import javase02.t03.baseThing.BaseThing;
 
 public class Line extends BaseThing {
     int measure;
+    //String color;
 
     public Line(){
-        super(10);
+        super.price=100;
         this.measure=30;
+        color="yellow";
     }
-     public Line(int measure, int price){
-         super(price);
+     public Line(int measure, int price, String color){
+         super.price=price;
+         super.check=true;
          this.measure=measure;
+         this.color=color;
      }
 
-    public int[] getLine(){
-        int[] o=new int[2];
-        o[0]=measure;
-        o[1]=price;
-        return o;
+    public int getMeasure() {
+        return measure;
     }
-    public void  setNotebook(int measure,int price){
+
+    @Override
+    public String getColor() {
+        return color;
+    }
+
+    public void  setNotebook(int measure, int price, String color){
         this.measure=measure;
         this.price=price;
+        this.color=color;
     }
 
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (null==o)
-            return  false;
-        if (getClass()!=o.getClass())
-            return false;
+        if (this == o) return true;
+        if (!(o instanceof Line)) return false;
+        if (!super.equals(o)) return false;
+
         Line line = (Line) o;
 
-        if (!super.equals(line)){
-            return false;
-        }
-        if (this.measure!=line.measure){
-            return  false;
-        }
-        return true;
+        if (getMeasure() != line.getMeasure()) return false;
+        return getColor() != null ? getColor().equals(line.getColor()) : line.getColor() == null;
+
     }
 
     @Override
     public int hashCode() {
-        int result=super.hashCode();
-
-        result=31*result+measure;
-
+        int result = super.hashCode();
+        result = 31 * result + getMeasure();
+        result = 31 * result + (getColor() != null ? getColor().hashCode() : 0);
         return result;
     }
 
@@ -59,6 +60,8 @@ public class Line extends BaseThing {
     public String toString() {
         return "Line{" +
                 "measure=" + measure +
+                ", color='" + color + '\'' +
+                ", price=" +super.price+
                 '}';
     }
 }
