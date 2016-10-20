@@ -1,9 +1,8 @@
 package javase02.t03.baseThing.setOfBiginner;
 
 import javase02.t05.Group;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
+import java.util.*;
 
 public  class AllMarksOfStudent<T extends Number> {
     public List<T> marks=new ArrayList<>();
@@ -13,6 +12,13 @@ public  class AllMarksOfStudent<T extends Number> {
              groups) {
             marks.addAll(i.findAllMarks(name));
         }
+
+        Collections.sort(marks,new Comparator<T>() {
+            public int compare(T o1, T o2) {
+                return o1.toString().compareTo(o2.toString());
+            }
+        });
         System.out.println(marks.toString());
+        marks.clear();
     }
 }
