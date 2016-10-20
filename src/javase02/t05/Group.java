@@ -1,18 +1,13 @@
 package javase02.t05;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.*;
-@AllArgsConstructor
+
 public class Group<T extends Number> {
 
     Subjects subject;
     ArrayList<Student> students = new ArrayList<>(); // студенты в группе
-    Map<String, T> marks = new HashMap<String, T>(); // оценуи в группе
+    Map<String, T> marks = new HashMap<String, T>(); // оценки в группе
 
-   // T i;
     public Group(Subjects subject) {
         this.subject = subject;
     }
@@ -27,9 +22,6 @@ public class Group<T extends Number> {
 
     }
 
-//    public  T numberOfStudent(){
-//
-//    }
     public T findMark(Student student){
         for (Student var: students ) {
             if(student.name.equals(var.name)){

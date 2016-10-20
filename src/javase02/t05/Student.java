@@ -6,11 +6,15 @@ public class Student {
 
 
     String name;
+    Subjects subjects;
+
 
     public Student(){}
 
     public Student(String name) {
+
         this.name = name;
+
     }
 
     public String getName() {
@@ -36,8 +40,5 @@ public class Student {
     public int hashCode() {
         return getName() != null ? getName().hashCode() : 0;
     }
-    //    @Override
-//    public int compare(Object o1, Object o2) {
-//        return 0;
-//    }
+
 }

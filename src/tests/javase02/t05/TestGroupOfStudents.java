@@ -28,8 +28,6 @@ public class TestGroupOfStudents{
         gr2.setMarks("Sergey", 4.5);
         gr2.setMarks("Pola", 5.);
 
-       // Comparator<Student> comparator= new Student();
-      //  Set<Student> set=new TreeSet<Student>(comparator);
 
         // Хотим Misha
         Student Misha=new Student("Misha");
