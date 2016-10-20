@@ -5,10 +5,7 @@ import java.util.Comparator;
 public class Student {
 
 
-    String name;
-    Subjects subjects;
-
-
+    public String name;
     public Student(){}
 
     public Student(String name) {

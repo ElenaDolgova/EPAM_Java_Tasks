@@ -1,5 +1,7 @@
 package tests.javase02.t05;
 
+import javase02.t03.baseThing.setOfBiginner.AllMarksOfStudent;
+import javase02.t05.StudentMarks;
 import javase02.t05.Group;
 import javase02.t05.Student;
 import javase02.t05.Subjects;
@@ -19,34 +21,41 @@ public class TestGroupOfStudents{
         gr1.setMarks("Seva", 3);
         gr1.setMarks("Pola", 5);
         gr1.setMarks("Roma", 2);
+        gr1.setMarks("Seva", 5);
+        gr1.setMarks("Roma", 4);
+        gr1.setMarks("Julia", 3);
+        gr1.setMarks("Julia", 5);
 
 
-        System.out.println(gr1.toString());
+       // System.out.println(gr1.toString());
 
+        gr2.setMarks("Misha", 3.);
         gr2.setMarks("Misha", 3.);
         gr2.setMarks("Pola", 3.9);
         gr2.setMarks("Sergey", 4.5);
         gr2.setMarks("Pola", 5.);
 
+        AllMarksOfStudent q=new AllMarksOfStudent();
+        q.out("Julia",gr1,gr2);
 
         // Хотим Misha
-        Student Misha=new Student("Misha");
-        Number[] marks =new Number[2];
-        System.out.println("Misha");
-
-        marks[0]=((double)gr1.findMark(Misha));
-        marks[1]=((double)gr2.findMark(Misha));
-
-        for (Number i: marks  ) {
-            System.out.print(i+" ");
-        }
-        Arrays.sort(marks);
-
-        System.out.println();
-
-        for (Number i: marks  ) {
-            System.out.print(i+" ");
-        }
+//        Student Misha=new Student("Misha");
+//        Number[] marks =new Number[2];
+//        System.out.println("Misha");
+//
+//        marks[0]=((double)gr1.findMark(Misha));
+//        marks[1]=((double)gr2.findMark(Misha));
+//
+//        for (Number i: marks  ) {
+//            System.out.print(i+" ");
+//        }
+//        Arrays.sort(marks);
+//
+//        System.out.println();
+//
+//        for (Number i: marks  ) {
+//            System.out.print(i+" ");
+//        }
 
 
     }
