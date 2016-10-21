@@ -3,11 +3,14 @@ package javase02.t06;
 import javase02.t07.RightNuclearSubmarine;
 
 @RightNuclearSubmarine(
-        swim="Ii path",
+
         speed=500,
         color= "grey"
 )
 public class NuclearSubmarine {
+    int speed;
+    String color;
+
     Motor motor;
     public NuclearSubmarine(){
         motor=new Motor();
