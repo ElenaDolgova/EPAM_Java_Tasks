@@ -12,7 +12,7 @@ public class Main {
     public  static void main(String[] args){
 
 
-        Comparator<BaseThing> comparator= new BaseThing();
+        Comparator<BaseThing> comparator= new byPriceAndByName();
         Set<BaseThing> set=new TreeSet<BaseThing>(comparator);
         set.add(new Notebook(30, 50,"red"));
         set.add(new Pen(30,"red",20));
