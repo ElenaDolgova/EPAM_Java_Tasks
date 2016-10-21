@@ -7,7 +7,6 @@ public class TestNuclearSubmarine {
 
     @Test
     public void Test(){
-        //NuclearSubmarine nuclearSubmarine= new NuclearSubmarine();
         NuclearSubmarine.Motor motor= new NuclearSubmarine().new Motor();
         System.out.println(motor.swim());
         motor.toSwim();
