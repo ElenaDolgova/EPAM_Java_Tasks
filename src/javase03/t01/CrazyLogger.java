@@ -1,7 +1,9 @@
 package javase03.t01;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 
@@ -37,14 +39,13 @@ public class CrazyLogger {
     }
 
     private void add (String message){
-        stringBuilder.append(changeDate(LocalDate.now())+":"+changeTime(LocalTime.now())+"-"+message+";");
+        stringBuilder.append(changeDate()+":"+changeTime()+"-"+message+";");
     }
-    private String changeDate(LocalDate localDate){
-        String date=localDate.toString();
-        return date.substring(8,10)+"-"+date.substring(5,7)+"-"+date.substring(0,4);
+    private String changeDate(){
+        return DateTimeFormatter.ofPattern("dd-MM-YYYY").format(LocalDateTime.now());
     }
 
-    private String changeTime(LocalTime localTime){
-        return localTime.toString().substring(0,2)+"-"+localTime.toString().substring(3,5);
+    private String changeTime(){
+        return DateTimeFormatter.ofPattern("hh-mm").format(LocalDateTime.now());
     }
 }
