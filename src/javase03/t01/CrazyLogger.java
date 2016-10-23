@@ -1,8 +1,6 @@
 package javase03.t01;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -16,6 +14,7 @@ public class CrazyLogger {
         Scanner s = new Scanner(System.in);
         String str=s.nextLine();
         add(str);
+        s.close();
 
     }
     public void find(){
