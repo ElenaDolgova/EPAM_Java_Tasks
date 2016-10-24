@@ -22,7 +22,7 @@ public class Bundle {
 
     public static void chooseLanguage(){
         final String ru="ru";
-        final String en="ru";
+        final String en="en";
         System.out.println("Input number of language 1-ru, 2-en");
         Scanner s= new Scanner(System.in);
         int i=s.nextInt();
