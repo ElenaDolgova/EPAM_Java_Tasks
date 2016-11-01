@@ -20,26 +20,49 @@ public class RegExp {
         }
 
         while (sc.hasNextLine()) {
-            //  StringBuilder testString= new StringBuilder(sc.nextLine());
-            // Matcher m = p.matcher(testString);
-
-            Pattern p;
-            p = Pattern.compile("[А-Я].{2,}[\\. |\\!{,3} |\\?{,3} |\\?\\! |\\!\\? ]");
-            //Pattern p = Pattern.compile(".*[А-Яа-я]*.");
+            Pattern p=Pattern.compile("[А-Я].{2,}[\\. |\\!{,3}|\\?{,3}|\\?\\! |\\!\\? ]");
             Matcher m = p.matcher(sc.nextLine());
+
+            ArrayList<Integer> arrayList=new ArrayList<>();
+
 
             if (m.find()) {
                 str.append(m.group());
-                System.out.println(str);
 
-                System.out.println("11111111111111111111");
+                if (str.indexOf("(Рис.")-str.indexOf(")")<2&&(str.indexOf("(Рис.")>=0)&&(str.indexOf(")")>=0)){
+                    System.out.println(str); // пишем строки с (Рис. **)
+                    System.out.println(str.charAt(str.indexOf("(Рис. ")+6));
+                    System.out.println();
+                }
+
+//                while ((str.indexOf("(Рис.")>=0)&&(str.indexOf(")")>=0)&&(Math.abs(str.indexOf(")"))-Math.abs(str.indexOf("(Рис.")))>2){
+//                    str.delete(0,str.indexOf(")")+1);// убрали лишние скобки
+//                   // System.out.println(str);
+//
+//                }
+
+
+//                while((Math.abs(str.indexOf(")"))-Math.abs(str.indexOf("(Рис.")))<2){
+//                    System.out.println(str);
+////                    arrayList.add(
+////                            (Integer.parseInt(
+////                                    str.substring(
+////                                            str.indexOf("(Рис."),str.indexOf(")")))));
+//                    System.out.println((str.indexOf("(Рис.")));
+//                    System.out.println((str.indexOf(")")));
+//                    str.delete(0,str.indexOf(")"));
+//                }
+
+
             }
-          //  return  str;
-           // if(!str.equals(""))
 
+            for (Integer i: arrayList
+                 ) {
+                System.out.println(i);
+            }
            str.delete(0, str.length());
         }
-     //  return new StringBuilder("");
+
     }
     public static void main1(String[] args) {
         Pattern p = Pattern.compile("\\(Рис\\.\\s \\d\\)");
