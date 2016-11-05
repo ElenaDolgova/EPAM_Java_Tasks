@@ -56,7 +56,6 @@ public class KeywordsCharacter {
         }
         for (AllKeywords i: AllKeywords.values()
                  ) {
-                System.out.println(i.toString()+" "+es.get(i).toString());
                 try {
                     writer.write(i.toString()+" "+es.get(i).toString()+"\r\n");
                 } catch (IOException e) {

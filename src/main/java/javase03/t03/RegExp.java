@@ -11,6 +11,7 @@ class RegExp {
     public static void findSentence(String  name){
         Scanner sc = null;
         StringBuilder str = new StringBuilder();
+        int counter=0;
 
         try {
             sc = new Scanner(Paths.get(name), "CP1251");
@@ -26,7 +27,8 @@ class RegExp {
                 str.append(m.group());
 
                 if (str.indexOf("(Рис.")!=-1){
-                    System.out.println(str+"\n");
+                    counter++;
+                    System.out.println(counter+". "+str+"\n");
 
                 }
                 str.delete(0,str.length());
