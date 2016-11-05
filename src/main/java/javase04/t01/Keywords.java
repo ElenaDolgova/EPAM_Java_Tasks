@@ -47,7 +47,6 @@ public class Keywords {
     }
 public void out(String nameOut, EnumMap es){
         FileOutputStream outFile=null;
-       // String nameOut="D:\\Work\\src\\main\\resources\\keywords.txt";
         try {
             outFile =new FileOutputStream(nameOut);
         } catch (FileNotFoundException e) {
@@ -61,9 +60,17 @@ public void out(String nameOut, EnumMap es){
                 outFile.write(" ".toString().getBytes());
                 outFile.write(es.get(i).toString().getBytes());
                 outFile.write("\r\n".toString().getBytes());
+                outFile.close();
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                try {
+                    outFile.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+
         }
 }
 
