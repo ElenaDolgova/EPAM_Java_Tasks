@@ -33,6 +33,7 @@ class RegExp {
             }
         }
 
+        sc.close();
     }
     public static void checkNumber(String name) {
         Scanner sc = null;
@@ -62,7 +63,7 @@ class RegExp {
            }
        }
 
-
+    sc.close();
   }
 }
 
