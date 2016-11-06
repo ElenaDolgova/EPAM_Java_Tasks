@@ -7,6 +7,7 @@ public class PropertTest {
     public void properTest(){
     Proper proper=new Proper();
     proper.props();
+       System.out.println(proper.getValue("lol"));
    }
 }
 
