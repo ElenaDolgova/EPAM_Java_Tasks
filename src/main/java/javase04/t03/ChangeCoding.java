@@ -14,7 +14,6 @@ public class ChangeCoding {
                 line=br.readLine();
 
                 while(line!=null){
-                    System.out.println(line);
                     bw.write(line+"\r\n");
                     line=br.readLine();
                 }
