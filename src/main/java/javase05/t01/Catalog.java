@@ -12,16 +12,18 @@ public class Catalog {
     private Map<Integer,String> map= new HashMap<>();
     Scanner s = new Scanner(System.in);
     File F = new File(mainDirectory.toString());
+    boolean flag=true;
+    int l;
+
+    File[] fList;
+    //File F = new File(mainDirectory.toString());
 
     public void changePath(){
         System.out.print("Choose\n Action:\n0) Exite\n"+"1) CreateDir\n");
 
-        File[] fList;
-        File F = new File(mainDirectory.toString());
-        fList = F.listFiles();
         map.put(0,"Exit");
         map.put(1,"CreateNewTextFile");
-
+        fList = F.listFiles();
         int j=1;
         System.out.print("Path:\n");
         try{for (File i : fList ) {
@@ -36,7 +38,7 @@ public class Catalog {
         }
 
 
-        int l = s.nextInt();
+        l = s.nextInt();
 
         switch (l){
             case 0:{
@@ -57,16 +59,28 @@ public class Catalog {
             map.put(3,"ChangeTextFile");
             map.put(4,"CreateDir");
             map.put(5,"");
+            if(!flag){
             switch (l){
                 case 1:{
                     mainDirectory.delete(mainDirectory.lastIndexOf("\\"),mainDirectory.length());
-                    CreateDir(mainDirectory.toString());
+                    CreateNewTextFile(mainDirectory.toString());
                    break;
                 }
                 case 2:{
+                    mainDirectory.delete(mainDirectory.lastIndexOf("\\"),mainDirectory.length());
+                    System.out.println("Input number of file ");
+
+                    mainDirectory.append("\\"+map.get(s.nextInt()));
+                    System.out.println(mainDirectory);
+                    DeleteTextFile(mainDirectory.toString());
                     break;
                 }
                 case 3:{
+                    break;
+                }
+                case 4:{
+                    mainDirectory.delete(mainDirectory.lastIndexOf("\\"),mainDirectory.length());
+                    CreateDir(mainDirectory.toString());
                     break;
                 }
                 case 5: {
@@ -75,6 +89,16 @@ public class Catalog {
                     break;
             }
             }
+            }
+            read();
+            l = s.nextInt();
+            flag=false;
+
+    }
+
+    s.close();
+        }
+        public void read(){
             F = new File(mainDirectory.toString());
             fList=F.listFiles();
             if(mainDirectory.length()>34) {
@@ -84,7 +108,7 @@ public class Catalog {
                 System.out.print("Choose\n Action:\n0) Exite\n" + "1) CreateNewTextFile\n" +
                         "2) DeleteTextFile\n" + "3) ChangeTextFile\n"+ "4) CreateDir\n");
             }
-            j=6;
+            int j=6;
             System.out.println(mainDirectory);
             System.out.print("Path:\n");
             try{
@@ -99,10 +123,6 @@ public class Catalog {
                 System.out.println("Catalog is not exist, please select the proposed folder ");
                 mainDirectory.delete(mainDirectory.indexOf("null"),mainDirectory.indexOf("null")+6);
             }
-            l = s.nextInt();
-    }
-
-    s.close();
         }
 
         public void CreateNewTextFile(String name){
@@ -130,5 +150,17 @@ public class Catalog {
                 folder.mkdirs();
             }
         }
+        public void DeleteTextFile(String name){
+            File newDir = new File(name);
+            // удалим каталог
+
+            if(newDir.delete())
+                System.out.println("Каталог удален");
+            mainDirectory.delete(mainDirectory.lastIndexOf("\\"),mainDirectory.length());
+            //System.out.println(mainDirectory);
+            //read();
+            //l=s.nextInt();
+        }
+
 }
 
