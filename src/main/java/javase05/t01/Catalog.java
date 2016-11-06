@@ -12,11 +12,10 @@ public class Catalog {
     private Map<Integer,String> map= new HashMap<>();
     Scanner s = new Scanner(System.in);
     File F = new File(mainDirectory.toString());
+    File[] fList;
     boolean flag=true;
     int l;
 
-    File[] fList;
-    //File F = new File(mainDirectory.toString());
 
     public void changePath(){
         System.out.print("Choose\n Action:\n0) Exite\n"+"1) CreateDir\n");
@@ -36,10 +35,7 @@ public class Catalog {
             System.out.println("Catalog is not exist, please select the proposed folder ");
             mainDirectory.delete(mainDirectory.indexOf("null"),mainDirectory.indexOf("null")+6);
         }
-
-
         l = s.nextInt();
-
         switch (l){
             case 0:{
                 break;
@@ -98,9 +94,7 @@ public class Catalog {
             read();
             l = s.nextInt();
             flag=false;
-
     }
-
     s.close();
         }
         public void read(){
@@ -163,7 +157,6 @@ public class Catalog {
 
         }
         public void writeInTextFile(String name){
-           // File writer =new File(name);
             try ( BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
                         new FileOutputStream(name)))){
                 bw.write(s.next());
@@ -172,7 +165,6 @@ public class Catalog {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-           // System.out.println(writer.canWrite());
             mainDirectory.delete(mainDirectory.lastIndexOf("\\"),mainDirectory.length());
         }
 
