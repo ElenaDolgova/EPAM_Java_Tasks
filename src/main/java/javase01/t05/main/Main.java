@@ -5,7 +5,6 @@ public class Main {
     public static void main(String[] args){
         System.out.println("Input the dimension of the matrix: ");
         Scanner s= new Scanner(System.in);
-        //int n=s.nextInt();
         matrix(s.nextInt());
         }
 
