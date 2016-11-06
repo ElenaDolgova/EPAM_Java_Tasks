@@ -76,6 +76,11 @@ public class Catalog {
                     break;
                 }
                 case 3:{
+                    mainDirectory.delete(mainDirectory.lastIndexOf("\\"),mainDirectory.length());
+                    System.out.println("Input number of file ");
+                    mainDirectory.append("\\"+map.get(s.nextInt()));
+                    System.out.println(mainDirectory);
+                    writeInTextFile(mainDirectory.toString());
                     break;
                 }
                 case 4:{
@@ -152,14 +157,23 @@ public class Catalog {
         }
         public void DeleteTextFile(String name){
             File newDir = new File(name);
-            // удалим каталог
-
-            if(newDir.delete())
+                 if(newDir.delete())
                 System.out.println("Каталог удален");
             mainDirectory.delete(mainDirectory.lastIndexOf("\\"),mainDirectory.length());
-            //System.out.println(mainDirectory);
-            //read();
-            //l=s.nextInt();
+
+        }
+        public void writeInTextFile(String name){
+           // File writer =new File(name);
+            try ( BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
+                        new FileOutputStream(name)))){
+                bw.write(s.next());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+           // System.out.println(writer.canWrite());
+            mainDirectory.delete(mainDirectory.lastIndexOf("\\"),mainDirectory.length());
         }
 
 }
